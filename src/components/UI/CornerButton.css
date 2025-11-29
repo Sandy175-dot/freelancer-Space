@@ -1,0 +1,96 @@
+.corner-button-wrapper {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.corner-button {
+  padding: 0.75rem 1rem;
+  font-family: monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  position: relative;
+  border: 0;
+  line-height: 1;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.75);
+  transition-property: background, color;
+  transition-duration: 0.26s;
+  transition-timing-function: ease-out;
+}
+
+.corner-button:focus-visible {
+  outline: rgba(255, 255, 255, 0) dashed 1px;
+  outline-offset: 0.5rem;
+}
+
+.corner-button:is(:focus-visible, :hover) {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.corner-button:is(:focus-visible, :hover) .corners span:nth-of-type(even) {
+  transform: translateY(100%);
+}
+
+.corner-button:is(:focus-visible, :hover) .corners span:nth-of-type(odd) {
+  transform: translateX(100%);
+}
+
+.corner-button:is(:focus-visible, :hover) .corners span {
+  transition: transform 0.26s 0.12s ease-out;
+}
+
+.corner-button:is(:focus-visible, :hover) .corners span svg {
+  rotate: 360deg;
+  transition: rotate 0.26s 0.12s ease-out;
+}
+
+.corners {
+  container-type: size;
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+}
+
+.corners span {
+  width: 10px;
+  height: 10px;
+  display: grid;
+  place-items: center;
+  position: absolute;
+  transition: transform 0.26s ease-out;
+}
+
+.corners span svg {
+  width: 100%;
+  transition: rotate 0.26s ease-out;
+}
+
+.corners span:nth-of-type(1) {
+  top: 0;
+  left: 0;
+}
+
+.corners span:nth-of-type(2) {
+  top: 0;
+  right: 0;
+}
+
+.corners span:nth-of-type(3) {
+  bottom: 0;
+  right: 0;
+  rotate: 180deg;
+}
+
+.corners span:nth-of-type(4) {
+  bottom: 0;
+  left: 0;
+  rotate: 180deg;
+}
+
+.button-text {
+  position: relative;
+  z-index: 4;
+}
