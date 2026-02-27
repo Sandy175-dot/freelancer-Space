@@ -8,10 +8,6 @@ export default defineConfig({
     include: ['@supabase/supabase-js', 'tslib'],
   },
   server: {
-    // Disable caching during development
-    headers: {
-      'Cache-Control': 'no-store',
-    },
     // Enable HMR (Hot Module Replacement)
     hmr: true,
     // Watch for changes
@@ -23,14 +19,7 @@ export default defineConfig({
   build: {
     // Reduce chunk size
     chunkSizeWarningLimit: 1000,
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-          'supabase-vendor': ['@supabase/supabase-js'],
-          'ui-vendor': ['framer-motion', 'lucide-react'],
-        },
-      },
-    },
+    sourcemap: false,
+    minify: 'esbuild',
   },
 })
